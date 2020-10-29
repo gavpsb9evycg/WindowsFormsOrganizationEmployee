@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace WindowsFormsOrganizationEmployee.Items
 {
@@ -6,6 +7,7 @@ namespace WindowsFormsOrganizationEmployee.Items
     /// According to Jeffrey Richter, the FCL (Framework Class Library) type names are used throughout this code
     /// Organization item
     /// </summary>
+    [StructLayout(LayoutKind.Auto)]
     public struct OrganizationItem
     {
         public Int32 Id { get; set; }
