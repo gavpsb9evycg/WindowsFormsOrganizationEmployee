@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace WindowsFormsOrganizationEmployee.Items
+namespace WindowsFormsSample.Items
 {
     /// <summary>
     /// According to Jeffrey Richter, the FCL (Framework Class Library) type names are used throughout this code

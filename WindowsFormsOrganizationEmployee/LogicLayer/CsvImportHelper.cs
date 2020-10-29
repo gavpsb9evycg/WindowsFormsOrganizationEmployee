@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using WindowsFormsOrganizationEmployee.DataLayer;
-using WindowsFormsOrganizationEmployee.Items;
+using WindowsFormsSample.DataLayer;
+using WindowsFormsSample.Items;
 
-namespace WindowsFormsOrganizationEmployee.LogicLayer
+namespace WindowsFormsSample.LogicLayer
 {
     /// <summary>
     /// Csv import helper class

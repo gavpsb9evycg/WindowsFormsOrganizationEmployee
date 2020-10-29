@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using WindowsFormsOrganizationEmployee.DataLayer;
-using WindowsFormsOrganizationEmployee.Items;
-using WindowsFormsOrganizationEmployee.LogicLayer;
+using WindowsFormsSample.DataLayer;
+using WindowsFormsSample.Items;
+using WindowsFormsSample.LogicLayer;
 
-namespace WindowsFormsOrganizationEmployee.PresentationLayer
+namespace WindowsFormsSample.PresentationLayer
 {
     /// <summary>
     /// Main form

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsOrganizationEmployee", "WindowsFormsOrganizationEmployee\WindowsFormsOrganizationEmployee.csproj", "{15158666-6560-4CF0-8231-5FA77C7600CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsFormsSample", "WindowsFormsOrganizationEmployee\WindowsFormsSample.csproj", "{15158666-6560-4CF0-8231-5FA77C7600CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsOrganizationEmployee.Tests", "WindowsFormsOrganizationEmployee.Tests\WindowsFormsOrganizationEmployee.Tests.csproj", "{5E7593A6-C219-40CE-884A-B6F4C76C8705}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsFormsSample.Tests", "WindowsFormsOrganizationEmployee.Tests\WindowsFormsSample.Tests.csproj", "{5E7593A6-C219-40CE-884A-B6F4C76C8705}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

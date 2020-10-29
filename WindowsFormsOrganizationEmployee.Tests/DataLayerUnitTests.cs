@@ -1,10 +1,10 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using WindowsFormsOrganizationEmployee.DataLayer;
-using WindowsFormsOrganizationEmployee.Items;
+using WindowsFormsSample.DataLayer;
+using WindowsFormsSample.Items;
 
-namespace WindowsFormsOrganizationEmployee.Tests
+namespace WindowsFormsSample.Tests
 {
     public class DataLayerUnitTests
     {

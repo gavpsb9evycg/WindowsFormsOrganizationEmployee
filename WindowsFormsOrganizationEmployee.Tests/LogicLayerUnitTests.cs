@@ -1,10 +1,10 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using WindowsFormsOrganizationEmployee.Items;
-using WindowsFormsOrganizationEmployee.LogicLayer;
+using WindowsFormsSample.Items;
+using WindowsFormsSample.LogicLayer;
 
-namespace WindowsFormsOrganizationEmployee.Tests
+namespace WindowsFormsSample.Tests
 {
     public class LogicLayerUnitTests
     {

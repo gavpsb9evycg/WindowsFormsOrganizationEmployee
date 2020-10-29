@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsFormsOrganizationEmployee.DataLayer
+namespace WindowsFormsSample.DataLayer
 {
     public static class Context
     {

@@ -1,8 +1,8 @@
 using System;
 using System.Windows.Forms;
-using WindowsFormsOrganizationEmployee.PresentationLayer;
+using WindowsFormsSample.PresentationLayer;
 
-namespace WindowsFormsOrganizationEmployee
+namespace WindowsFormsSample
 {
     static class Program
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using WindowsFormsOrganizationEmployee.Items;
+using WindowsFormsSample.Items;
 
-namespace WindowsFormsOrganizationEmployee.DataLayer
+namespace WindowsFormsSample.DataLayer
 {
     /// <summary>
     /// Import data to Employee table

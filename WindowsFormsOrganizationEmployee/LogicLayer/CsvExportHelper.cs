@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using WindowsFormsOrganizationEmployee.Items;
+using WindowsFormsSample.Items;
 
-namespace WindowsFormsOrganizationEmployee.LogicLayer
+namespace WindowsFormsSample.LogicLayer
 {
     /// <summary>
     /// Csv export helper class
