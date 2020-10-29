@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using WinFormsOrganizationEmployee.DataLayer;
-using WinFormsOrganizationEmployee.Items;
-using WinFormsOrganizationEmployee.LogicLayer;
+using WindowsFormsOrganizationEmployee.DataLayer;
+using WindowsFormsOrganizationEmployee.Items;
+using WindowsFormsOrganizationEmployee.LogicLayer;
 
-namespace WinFormsOrganizationEmployee.PresentationLayer
+namespace WindowsFormsOrganizationEmployee.PresentationLayer
 {
     /// <summary>
     /// Main form
@@ -68,7 +68,7 @@ namespace WinFormsOrganizationEmployee.PresentationLayer
         {
             List<OrganizationItem> organizationList = OrganizationRetriever.GetOrganizationList();
             dgvOrganization.DataSource = organizationList;
-            
+
             SetEnabledProperties(true);
         }
 

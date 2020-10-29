@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using WinFormsOrganizationEmployee.Items;
+using WindowsFormsOrganizationEmployee.Items;
 
-namespace WinFormsOrganizationEmployee.DataLayer
+namespace WindowsFormsOrganizationEmployee.DataLayer
 {
     /// <summary>
     /// Import data to Employee table
@@ -26,14 +26,14 @@ namespace WinFormsOrganizationEmployee.DataLayer
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.CommandText = "usp_InsertEmployee";
-                        command.Parameters.Add(new SqlParameter("OrganizationId", SqlDbType.Int) {Value = organizationId});
-                        command.Parameters.Add(new SqlParameter("LastName", SqlDbType.NVarChar) {Value = item.LastName});
-                        command.Parameters.Add(new SqlParameter("Name", SqlDbType.NVarChar) { Value = item.Name});
-                        command.Parameters.Add(new SqlParameter("MiddleName", SqlDbType.NVarChar) { Value = item.MiddleName});
-                        command.Parameters.Add(new SqlParameter("DateOfBirth", SqlDbType.DateTime) { Value = item.DateOfBirth});
-                        command.Parameters.Add(new SqlParameter("PassportSeries", SqlDbType.NVarChar) { Value = item.PassportSeries});
-                        command.Parameters.Add(new SqlParameter("PassportNumber", SqlDbType.NVarChar) { Value = item.PassportNumber});
-                        command.Parameters.Add(new SqlParameter("Comment", SqlDbType.NVarChar) { Value = item.Comment});
+                        command.Parameters.Add(new SqlParameter("OrganizationId", SqlDbType.Int) { Value = organizationId });
+                        command.Parameters.Add(new SqlParameter("LastName", SqlDbType.NVarChar) { Value = item.LastName });
+                        command.Parameters.Add(new SqlParameter("Name", SqlDbType.NVarChar) { Value = item.Name });
+                        command.Parameters.Add(new SqlParameter("MiddleName", SqlDbType.NVarChar) { Value = item.MiddleName });
+                        command.Parameters.Add(new SqlParameter("DateOfBirth", SqlDbType.DateTime) { Value = item.DateOfBirth });
+                        command.Parameters.Add(new SqlParameter("PassportSeries", SqlDbType.NVarChar) { Value = item.PassportSeries });
+                        command.Parameters.Add(new SqlParameter("PassportNumber", SqlDbType.NVarChar) { Value = item.PassportNumber });
+                        command.Parameters.Add(new SqlParameter("Comment", SqlDbType.NVarChar) { Value = item.Comment });
 
                         command.ExecuteNonQuery();
                     }

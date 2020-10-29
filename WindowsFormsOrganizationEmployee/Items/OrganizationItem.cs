@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace WinFormsOrganizationEmployee.Items
+namespace WindowsFormsOrganizationEmployee.Items
 {
     /// <summary>
     /// According to Jeffrey Richter, the FCL (Framework Class Library) type names are used throughout this code
     /// Organization item
     /// </summary>
-    public class OrganizationItem
+    public struct OrganizationItem
     {
         public Int32 Id { get; set; }
 

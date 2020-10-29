@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using WinFormsOrganizationEmployee.Items;
+using WindowsFormsOrganizationEmployee.Items;
 
-namespace WinFormsOrganizationEmployee.DataLayer
+namespace WindowsFormsOrganizationEmployee.DataLayer
 {
     /// <summary>
     /// Data retriever from Employee table
@@ -26,7 +26,7 @@ namespace WinFormsOrganizationEmployee.DataLayer
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "usp_GetEmployeeList";
-                    command.Parameters.Add(new SqlParameter("OrganizationId", SqlDbType.Int) {Value = organizationId});
+                    command.Parameters.Add(new SqlParameter("OrganizationId", SqlDbType.Int) { Value = organizationId });
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {

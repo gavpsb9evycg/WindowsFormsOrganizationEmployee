@@ -1,4 +1,4 @@
-﻿namespace WinFormsOrganizationEmployee.PresentationLayer
+﻿namespace WindowsFormsOrganizationEmployee.PresentationLayer
 {
     partial class Form1
     {

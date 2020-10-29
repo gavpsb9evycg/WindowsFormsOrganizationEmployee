@@ -1,8 +1,8 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using WinFormsOrganizationEmployee.Items;
-using WinFormsOrganizationEmployee.LogicLayer;
+using WindowsFormsOrganizationEmployee.Items;
+using WindowsFormsOrganizationEmployee.LogicLayer;
 
 namespace WindowsFormsOrganizationEmployee.Tests
 {

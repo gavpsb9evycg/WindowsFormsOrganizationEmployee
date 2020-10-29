@@ -1,6 +1,6 @@
 using System;
 using System.Windows.Forms;
-using WinFormsOrganizationEmployee.PresentationLayer;
+using WindowsFormsOrganizationEmployee.PresentationLayer;
 
 namespace WindowsFormsOrganizationEmployee
 {

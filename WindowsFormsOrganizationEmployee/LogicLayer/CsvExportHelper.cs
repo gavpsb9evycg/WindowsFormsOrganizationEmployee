@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using WinFormsOrganizationEmployee.Items;
+using WindowsFormsOrganizationEmployee.Items;
 
-namespace WinFormsOrganizationEmployee.LogicLayer
+namespace WindowsFormsOrganizationEmployee.LogicLayer
 {
     /// <summary>
     /// Csv export helper class
@@ -18,7 +18,7 @@ namespace WinFormsOrganizationEmployee.LogicLayer
         /// </summary>
         public static void ExportEmployeesToCsv(List<EmployeeItem> employeeList, String exportFilePath = "", Boolean isOpenFile = false)
         {
-            if(!IsValid(employeeList, exportFilePath))
+            if (!IsValid(employeeList, exportFilePath))
                 return;
 
             StringBuilder dataBuilder = CreateExportData(employeeList);

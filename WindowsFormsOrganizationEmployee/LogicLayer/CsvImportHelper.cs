@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using WinFormsOrganizationEmployee.DataLayer;
-using WinFormsOrganizationEmployee.Items;
+using WindowsFormsOrganizationEmployee.DataLayer;
+using WindowsFormsOrganizationEmployee.Items;
 
-namespace WinFormsOrganizationEmployee.LogicLayer
+namespace WindowsFormsOrganizationEmployee.LogicLayer
 {
     /// <summary>
     /// Csv import helper class
@@ -66,9 +66,9 @@ namespace WinFormsOrganizationEmployee.LogicLayer
                 String[] parts = line.Split(',');
 
                 //check whether there are 7 items
-                if(parts.Length != 7)
+                if (parts.Length != 7)
                     continue;
-                
+
                 EmployeeItem item = new EmployeeItem
                 {
                     LastName = parts[0],
