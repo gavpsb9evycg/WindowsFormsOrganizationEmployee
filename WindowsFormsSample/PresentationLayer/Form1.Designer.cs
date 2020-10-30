@@ -28,100 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvOrganization = new System.Windows.Forms.DataGridView();
-            this.dgvlblEmployee = new System.Windows.Forms.DataGridView();
-            this.lblOrganization = new System.Windows.Forms.Label();
-            this.lblEmployee = new System.Windows.Forms.Label();
-            this.btnLoadFromDb = new System.Windows.Forms.Button();
-            this.btnImportFromCsv = new System.Windows.Forms.Button();
-            this.btnExportToCsv = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrganization)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvlblEmployee)).BeginInit();
+            this.organizationDataGridView = new System.Windows.Forms.DataGridView();
+            this.employeeDataGridView = new System.Windows.Forms.DataGridView();
+            this.organizationLabel = new System.Windows.Forms.Label();
+            this.employeeLabel = new System.Windows.Forms.Label();
+            this.loadFromDbButton = new System.Windows.Forms.Button();
+            this.importFromCsvButton = new System.Windows.Forms.Button();
+            this.exportToCsvButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.organizationDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvOrganization
+            // organizationDataGridView
             // 
-            this.dgvOrganization.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrganization.Location = new System.Drawing.Point(12, 29);
-            this.dgvOrganization.MultiSelect = false;
-            this.dgvOrganization.Name = "dgvOrganization";
-            this.dgvOrganization.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrganization.Size = new System.Drawing.Size(798, 227);
-            this.dgvOrganization.TabIndex = 0;
-            this.dgvOrganization.SelectionChanged += new System.EventHandler(this.dgvOrganization_SelectionChanged);
+            this.organizationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.organizationDataGridView.Location = new System.Drawing.Point(14, 33);
+            this.organizationDataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.organizationDataGridView.MultiSelect = false;
+            this.organizationDataGridView.Name = "organizationDataGridView";
+            this.organizationDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.organizationDataGridView.Size = new System.Drawing.Size(931, 262);
+            this.organizationDataGridView.TabIndex = 0;
+            this.organizationDataGridView.SelectionChanged += new System.EventHandler(this.dgvOrganization_SelectionChanged);
             // 
-            // dgvlblEmployee
+            // employeeDataGridView
             // 
-            this.dgvlblEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvlblEmployee.Location = new System.Drawing.Point(15, 289);
-            this.dgvlblEmployee.Name = "dgvlblEmployee";
-            this.dgvlblEmployee.Size = new System.Drawing.Size(795, 220);
-            this.dgvlblEmployee.TabIndex = 1;
+            this.employeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeeDataGridView.Location = new System.Drawing.Point(18, 333);
+            this.employeeDataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.employeeDataGridView.Name = "employeeDataGridView";
+            this.employeeDataGridView.Size = new System.Drawing.Size(927, 254);
+            this.employeeDataGridView.TabIndex = 1;
             // 
-            // lblOrganization
+            // organizationLabel
             // 
-            this.lblOrganization.AutoSize = true;
-            this.lblOrganization.Location = new System.Drawing.Point(9, 9);
-            this.lblOrganization.Name = "lblOrganization";
-            this.lblOrganization.Size = new System.Drawing.Size(66, 13);
-            this.lblOrganization.TabIndex = 2;
-            this.lblOrganization.Text = "Organization";
+            this.organizationLabel.AutoSize = true;
+            this.organizationLabel.Location = new System.Drawing.Point(10, 10);
+            this.organizationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.organizationLabel.Name = "organizationLabel";
+            this.organizationLabel.Size = new System.Drawing.Size(75, 15);
+            this.organizationLabel.TabIndex = 2;
+            this.organizationLabel.Text = "Organization";
             // 
-            // lblEmployee
+            // employeeLabel
             // 
-            this.lblEmployee.AutoSize = true;
-            this.lblEmployee.Location = new System.Drawing.Point(12, 267);
-            this.lblEmployee.Name = "lblEmployee";
-            this.lblEmployee.Size = new System.Drawing.Size(53, 13);
-            this.lblEmployee.TabIndex = 3;
-            this.lblEmployee.Text = "Employee";
+            this.employeeLabel.AutoSize = true;
+            this.employeeLabel.Location = new System.Drawing.Point(14, 308);
+            this.employeeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.employeeLabel.Name = "employeeLabel";
+            this.employeeLabel.Size = new System.Drawing.Size(59, 15);
+            this.employeeLabel.TabIndex = 3;
+            this.employeeLabel.Text = "Employee";
             // 
-            // btnLoadFromDb
+            // loadFromDbButton
             // 
-            this.btnLoadFromDb.Location = new System.Drawing.Point(118, 3);
-            this.btnLoadFromDb.Name = "btnLoadFromDb";
-            this.btnLoadFromDb.Size = new System.Drawing.Size(109, 23);
-            this.btnLoadFromDb.TabIndex = 4;
-            this.btnLoadFromDb.Text = "Load from database";
-            this.btnLoadFromDb.UseVisualStyleBackColor = true;
-            this.btnLoadFromDb.Click += new System.EventHandler(this.btnLoadOrganizationFromDb_Click);
+            this.loadFromDbButton.Location = new System.Drawing.Point(138, 3);
+            this.loadFromDbButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.loadFromDbButton.Name = "loadFromDbButton";
+            this.loadFromDbButton.Size = new System.Drawing.Size(127, 27);
+            this.loadFromDbButton.TabIndex = 4;
+            this.loadFromDbButton.Text = "Load from database";
+            this.loadFromDbButton.UseVisualStyleBackColor = true;
+            this.loadFromDbButton.Click += new System.EventHandler(this.loadOrganizationFromDbButton_Click);
             // 
-            // btnImportFromCsv
+            // importFromCsvButton
             // 
-            this.btnImportFromCsv.Location = new System.Drawing.Point(233, 3);
-            this.btnImportFromCsv.Name = "btnImportFromCsv";
-            this.btnImportFromCsv.Size = new System.Drawing.Size(101, 23);
-            this.btnImportFromCsv.TabIndex = 5;
-            this.btnImportFromCsv.Text = "Import from csv";
-            this.btnImportFromCsv.UseVisualStyleBackColor = true;
-            this.btnImportFromCsv.Click += new System.EventHandler(this.btnImportFromCsv_Click);
+            this.importFromCsvButton.Location = new System.Drawing.Point(272, 3);
+            this.importFromCsvButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.importFromCsvButton.Name = "importFromCsvButton";
+            this.importFromCsvButton.Size = new System.Drawing.Size(118, 27);
+            this.importFromCsvButton.TabIndex = 5;
+            this.importFromCsvButton.Text = "Import from csv";
+            this.importFromCsvButton.UseVisualStyleBackColor = true;
+            this.importFromCsvButton.Click += new System.EventHandler(this.importFromCsvButton_Click);
             // 
-            // btnExportToCsv
+            // exportToCsvButton
             // 
-            this.btnExportToCsv.Location = new System.Drawing.Point(340, 3);
-            this.btnExportToCsv.Name = "btnExportToCsv";
-            this.btnExportToCsv.Size = new System.Drawing.Size(100, 23);
-            this.btnExportToCsv.TabIndex = 6;
-            this.btnExportToCsv.Text = "Export to csv";
-            this.btnExportToCsv.UseVisualStyleBackColor = true;
-            this.btnExportToCsv.Click += new System.EventHandler(this.btnExportToCsv_Click);
+            this.exportToCsvButton.Location = new System.Drawing.Point(397, 3);
+            this.exportToCsvButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.exportToCsvButton.Name = "exportToCsvButton";
+            this.exportToCsvButton.Size = new System.Drawing.Size(117, 27);
+            this.exportToCsvButton.TabIndex = 6;
+            this.exportToCsvButton.Text = "Export to csv";
+            this.exportToCsvButton.UseVisualStyleBackColor = true;
+            this.exportToCsvButton.Click += new System.EventHandler(this.exportToCsvButton_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 521);
-            this.Controls.Add(this.btnExportToCsv);
-            this.Controls.Add(this.btnImportFromCsv);
-            this.Controls.Add(this.btnLoadFromDb);
-            this.Controls.Add(this.lblEmployee);
-            this.Controls.Add(this.lblOrganization);
-            this.Controls.Add(this.dgvlblEmployee);
-            this.Controls.Add(this.dgvOrganization);
+            this.ClientSize = new System.Drawing.Size(959, 601);
+            this.Controls.Add(this.exportToCsvButton);
+            this.Controls.Add(this.importFromCsvButton);
+            this.Controls.Add(this.loadFromDbButton);
+            this.Controls.Add(this.employeeLabel);
+            this.Controls.Add(this.organizationLabel);
+            this.Controls.Add(this.employeeDataGridView);
+            this.Controls.Add(this.organizationDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.Text = "OrganizationEmployee";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrganization)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvlblEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.organizationDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,13 +137,13 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvOrganization;
-        private System.Windows.Forms.DataGridView dgvlblEmployee;
-        private System.Windows.Forms.Label lblOrganization;
-        private System.Windows.Forms.Label lblEmployee;
-        private System.Windows.Forms.Button btnLoadFromDb;
-        private System.Windows.Forms.Button btnImportFromCsv;
-        private System.Windows.Forms.Button btnExportToCsv;
+        private System.Windows.Forms.DataGridView organizationDataGridView;
+        private System.Windows.Forms.DataGridView employeeDataGridView;
+        private System.Windows.Forms.Label organizationLabel;
+        private System.Windows.Forms.Label employeeLabel;
+        private System.Windows.Forms.Button loadFromDbButton;
+        private System.Windows.Forms.Button importFromCsvButton;
+        private System.Windows.Forms.Button exportToCsvButton;
     }
 }
 

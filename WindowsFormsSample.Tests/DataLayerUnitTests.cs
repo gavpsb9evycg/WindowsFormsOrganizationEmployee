@@ -1,8 +1,6 @@
 ﻿using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using WindowsFormsSample.DataLayer;
-using WindowsFormsSample.Items;
 
 namespace WindowsFormsSample.Tests
 {
@@ -16,18 +14,16 @@ namespace WindowsFormsSample.Tests
         [Test]
         public void GetEmployeeListFromCsvTest()
         {
-            List<OrganizationItem> organizationList = OrganizationRetriever.GetOrganizationList();
+            IEnumerable<IOrganization> organizationList = DataContext.GetOrganizationList();
             CollectionAssert.IsNotEmpty(organizationList);
         }
 
         [TestCase(1)]
         [TestCase(2)]
         [TestCase(3)]
-        [TestCase(4)]
-        [TestCase(5)]
-        public void GetEmployeeListFromCsvTest(Int32 organizationId)
+        public void GetEmployeeListFromCsvTest(int organizationId)
         {
-            List<EmployeeItem> employeeList = EmployeeRetriever.GetEmployeeListFromDbByOrganizationId(organizationId);
+            IEnumerable<IEmployee> employeeList = DataContext.GetEmployeeListFromDbByOrganizationId(organizationId);
             CollectionAssert.IsNotEmpty(employeeList);
         }
     }

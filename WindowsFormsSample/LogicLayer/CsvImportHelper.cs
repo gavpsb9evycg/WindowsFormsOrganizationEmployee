@@ -3,73 +3,74 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using WindowsFormsSample.DataLayer;
+using WindowsFormsSample.DataLayer.SqlClient;
 using WindowsFormsSample.Items;
 
 namespace WindowsFormsSample.LogicLayer
 {
     /// <summary>
-    /// Csv import helper class
+    /// Csv import helper class.
     /// </summary>
     public static class CsvImportHelper
     {
         /// <summary>
-        /// Import employees items from csv file
+        /// Import employees items from csv file.
         /// </summary>
-        public static void ImportEmployeesFromCsv(Int32 organizationId)
+        public static void ImportEmployeesFromCsv(int organizationId)
         {
-            String fileName = GetFileName();
-            if (String.IsNullOrWhiteSpace(fileName))
+            string fileName = GetFileName();
+            if (string.IsNullOrWhiteSpace(fileName))
                 return;
 
-            List<EmployeeItem> employeeList = GetEmployeeListFromCsv(fileName);
-            EmployeeImportToDb.ImportDataToDb(organizationId, employeeList);
+            IEnumerable<IEmployee> employeeList = GetEmployeeListFromCsv(fileName);
+            EmployeeContext.ImportDataToDb(organizationId, employeeList);
         }
 
         /// <summary>
-        /// Get file name for import data
+        /// Get file name for import data.
         /// </summary>
         /// <returns></returns>
-        private static String GetFileName()
+        private static string GetFileName()
         {
-            OpenFileDialog dialog = new OpenFileDialog
+            var dialog = new OpenFileDialog
             {
                 InitialDirectory = Directory.GetCurrentDirectory(),
-                Filter = "Csv files (*.csv)|*.csv",
+                Filter = Consts.CsvFilter,
                 FilterIndex = 0,
                 RestoreDirectory = true
             };
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                String selectedFileName = dialog.FileName;
+                string selectedFileName = dialog.FileName;
                 return selectedFileName;
             }
 
-            return String.Empty;
+            return string.Empty;
         }
 
         /// <summary>
-        /// Get employee items from csv file
+        /// Get employee items from csv file.
         /// </summary>
-        public static List<EmployeeItem> GetEmployeeListFromCsv(String fileName)
+        public static IEnumerable<IEmployee> GetEmployeeListFromCsv(string fileName)
         {
-            List<EmployeeItem> result = new List<EmployeeItem>();
+            var employeeList = new List<IEmployee>();
 
-            String[] lines = File.ReadAllLines(fileName);
+            string[] lines = File.ReadAllLines(fileName);
 
-            foreach (String line in lines)
+            foreach (string line in lines)
             {
-                //check whether there is a header
-                if (line.StartsWith("LastName,Name,MiddleName"))
+                // Check whether there is a header.
+                if (line.Contains(Consts.CsvHeader))
                     continue;
 
-                String[] parts = line.Split(',');
+                string[] parts = line.Split(',');
 
-                //check whether there are 7 items
-                if (parts.Length != 7)
+                // Check csv part count.
+                if (parts.Length != Consts.CsvPartCount)
                     continue;
 
-                EmployeeItem item = new EmployeeItem
+                var item = new EmployeeItem
                 {
                     LastName = parts[0],
                     Name = parts[1],
@@ -80,10 +81,10 @@ namespace WindowsFormsSample.LogicLayer
                     Comment = parts[6]
                 };
 
-                result.Add(item);
+                employeeList.Add(item);
             }
 
-            return result;
+            return employeeList;
         }
     }
 }

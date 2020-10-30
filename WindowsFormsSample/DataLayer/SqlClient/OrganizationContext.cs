@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using WindowsFormsSample.Items;
 
-namespace WindowsFormsSample.DataLayer
+namespace WindowsFormsSample.DataLayer.SqlClient
 {
-    /// <summary>
-    /// Data retriever from Organization table
-    /// </summary>
-    public static class OrganizationRetriever
+    public static class OrganizationContext
     {
         /// <summary>
-        /// Get organization items from database
+        /// Get organization items from database.
         /// </summary>
-        public static List<OrganizationItem> GetOrganizationList()
+        public static IEnumerable<IOrganization> GetOrganizationList()
         {
-            List<OrganizationItem> result = new List<OrganizationItem>();
+            var organizationList = new List<IOrganization>();
 
-            using (SqlConnection connection = new SqlConnection(Context.ConnectionString))
+            using (var connection = new SqlConnection(Consts.ConnectionString))
             {
                 connection.Open();
 
@@ -31,9 +27,9 @@ namespace WindowsFormsSample.DataLayer
                     {
                         while (reader.Read())
                         {
-                            OrganizationItem item = new OrganizationItem
+                            var item = new OrganizationItem
                             {
-                                Id = (Int32)reader["Id"],
+                                Id = (int)reader["Id"],
                                 Name = reader["Name"].ToString(),
                                 Inn = reader["Inn"].ToString(),
                                 LegalAddress = reader["LegalAddress"].ToString(),
@@ -41,13 +37,13 @@ namespace WindowsFormsSample.DataLayer
                                 Comment = reader["Comment"].ToString()
                             };
 
-                            result.Add(item);
+                            organizationList.Add(item);
                         }
                     }
                 }
             }
 
-            return result;
+            return organizationList;
         }
     }
 }
