@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using WindowsFormsSample.DataLayer;
-using WindowsFormsSample.DataLayer.SqlClient;
 using WindowsFormsSample.Items;
 
 namespace WindowsFormsSample.LogicLayer
@@ -23,7 +22,7 @@ namespace WindowsFormsSample.LogicLayer
                 return;
 
             IEnumerable<IEmployee> employeeList = GetEmployeeListFromCsv(fileName);
-            EmployeeContext.ImportDataToDb(organizationId, employeeList);
+            DataContext.ImportDataToDb(organizationId, employeeList);
         }
 
         /// <summary>

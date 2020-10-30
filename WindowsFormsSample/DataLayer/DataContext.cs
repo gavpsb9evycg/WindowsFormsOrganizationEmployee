@@ -10,29 +10,44 @@ namespace WindowsFormsSample.DataLayer
     /// </summary>
     public static class DataContext
     {
-        private static readonly DataType DataContextType = DataType.EntityFramework;
+        public static DataContextType DataContextType { get; set; }
 
         public static IEnumerable<IOrganization> GetOrganizationList()
         {
             switch (DataContextType)
             {
-                case DataType.SqlClient:
-                    return OrganizationContext.GetOrganizationList();
-                case DataType.EntityFramework:
+                case DataContextType.SqlClient:
+                    return SqlClientContext.GetOrganizationList();
+                case DataContextType.EntityFrameworkCore:
                     return EntityContext.GetOrganizationList();
                 default:
                     throw new NotImplementedException();
             }
         }
 
-        public static IEnumerable<IEmployee> GetEmployeeListFromDbByOrganizationId(int organizationId)
+        public static IEnumerable<IEmployee> GetEmployeeListByOrganizationId(int organizationId)
         {
             switch (DataContextType)
             {
-                case DataType.SqlClient:
-                    return EmployeeContext.GetEmployeeListFromDbByOrganizationId(organizationId);
-                case DataType.EntityFramework:
-                    return EntityContext.GetEmployeeListFromDbByOrganizationId(organizationId);
+                case DataContextType.SqlClient:
+                    return SqlClientContext.GetEmployeeListByOrganizationId(organizationId);
+                case DataContextType.EntityFrameworkCore:
+                    return EntityContext.GetEmployeeListByOrganizationId(organizationId);
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        public static void ImportDataToDb(int organizationId, IEnumerable<IEmployee> employeeList)
+        {
+            switch (DataContextType)
+            {
+                case DataContextType.SqlClient:
+                    SqlClientContext.ImportDataToDb(organizationId, employeeList);
+                    break;
+                case DataContextType.EntityFrameworkCore:
+                    EntityContext.ImportDataToDb(organizationId, employeeList);
+                    break;
                 default:
                     throw new NotImplementedException();
             }

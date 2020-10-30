@@ -23,7 +23,7 @@ namespace WindowsFormsSample.Tests
         [TestCase(3)]
         public void GetEmployeeListFromCsvTest(int organizationId)
         {
-            IEnumerable<IEmployee> employeeList = DataContext.GetEmployeeListFromDbByOrganizationId(organizationId);
+            IEnumerable<IEmployee> employeeList = DataContext.GetEmployeeListByOrganizationId(organizationId);
             CollectionAssert.IsNotEmpty(employeeList);
         }
     }

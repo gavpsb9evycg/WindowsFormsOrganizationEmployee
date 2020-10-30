@@ -41,6 +41,11 @@ namespace WindowsFormsSample.PresentationLayer
         {
             employeeDataGridView.DataSource = GetEmployeeListByOrganizationId();
         }
+
+        private void dataContextTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataContext.DataContextType = GetDataContextType();
+        }
         #endregion
 
         /// <summary>
@@ -58,6 +63,14 @@ namespace WindowsFormsSample.PresentationLayer
             employeeDataGridView.ReadOnly = true;
 
             SetEnabledProperties(false);
+
+            dataContextTypeComboBox.DataSource = Enum.GetNames(typeof(DataContextType));
+            DataContext.DataContextType = GetDataContextType();
+        }
+
+        private DataContextType GetDataContextType()
+        {
+            return (DataContextType)Enum.Parse(typeof(DataContextType), dataContextTypeComboBox.SelectedValue.ToString());
         }
 
         /// <summary>
@@ -104,7 +117,7 @@ namespace WindowsFormsSample.PresentationLayer
         private IEnumerable<IEmployee> GetEmployeeListByOrganizationId()
         {
             int organizationId = GetSelectedOrganizationId();
-            IEnumerable<IEmployee> employeeList = DataContext.GetEmployeeListFromDbByOrganizationId(organizationId);
+            IEnumerable<IEmployee> employeeList = DataContext.GetEmployeeListByOrganizationId(organizationId);
             return employeeList;
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsSample.DataLayer
 {
-    public enum DataType
+    public enum DataContextType
     {
         /// <summary>
         /// SqlClient data context
@@ -8,8 +8,8 @@
         SqlClient = 1,
 
         /// <summary>
-        /// EntityFramework data context
+        /// Entity Framework Core data context
         /// </summary>
-        EntityFramework
+        EntityFrameworkCore
     }
 }

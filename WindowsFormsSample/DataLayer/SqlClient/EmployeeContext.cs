@@ -11,7 +11,7 @@ namespace WindowsFormsSample.DataLayer.SqlClient
         /// <summary>
         /// Get employee items from database according selected organization id.
         /// </summary>
-        public static IEnumerable<IEmployee> GetEmployeeListFromDbByOrganizationId(int organizationId)
+        public static IEnumerable<IEmployee> GetEmployeeListByOrganizationId(int organizationId)
         {
             var employeeList = new List<IEmployee>();
 
