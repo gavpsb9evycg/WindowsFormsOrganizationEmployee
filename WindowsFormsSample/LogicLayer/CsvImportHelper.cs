@@ -26,29 +26,6 @@ namespace WindowsFormsSample.LogicLayer
         }
 
         /// <summary>
-        /// Get file name for import data.
-        /// </summary>
-        /// <returns></returns>
-        private static string GetFileName()
-        {
-            var dialog = new OpenFileDialog
-            {
-                InitialDirectory = Directory.GetCurrentDirectory(),
-                Filter = Consts.CsvFilter,
-                FilterIndex = 0,
-                RestoreDirectory = true
-            };
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                string selectedFileName = dialog.FileName;
-                return selectedFileName;
-            }
-
-            return string.Empty;
-        }
-
-        /// <summary>
         /// Get employee items from csv file.
         /// </summary>
         public static IEnumerable<IEmployee> GetEmployeeListFromCsv(string fileName)
@@ -77,13 +54,36 @@ namespace WindowsFormsSample.LogicLayer
                     DateOfBirth = DateTime.ParseExact(parts[3], "yyyyMMdd", null),
                     PassportSeries = parts[4],
                     PassportNumber = parts[5],
-                    Comment = parts[6]
+                    Comment = parts[6],
                 };
 
                 employeeList.Add(item);
             }
 
             return employeeList;
+        }
+
+        /// <summary>
+        /// Get file name for import data.
+        /// </summary>
+        /// <returns></returns>
+        private static string GetFileName()
+        {
+            var dialog = new OpenFileDialog
+            {
+                InitialDirectory = Directory.GetCurrentDirectory(),
+                Filter = Consts.CsvFilter,
+                FilterIndex = 0,
+                RestoreDirectory = true,
+            };
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string selectedFileName = dialog.FileName;
+                return selectedFileName;
+            }
+
+            return string.Empty;
         }
     }
 }

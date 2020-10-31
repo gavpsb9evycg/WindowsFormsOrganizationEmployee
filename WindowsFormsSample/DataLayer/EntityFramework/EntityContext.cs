@@ -4,7 +4,7 @@ using System.Linq;
 namespace WindowsFormsSample.DataLayer.EntityFramework
 {
     /// <summary>
-    /// Entity Framework Core context
+    /// Entity Framework Core context.
     /// </summary>
     public class EntityContext : IDataContext
     {
@@ -12,7 +12,7 @@ namespace WindowsFormsSample.DataLayer.EntityFramework
         {
             using (var dbContext = new OrganizationEmployeeContext())
             {
-                return dbContext.Organization.ToList();
+                return dbContext.Organization.AsEnumerable();
             }
         }
 
@@ -20,7 +20,7 @@ namespace WindowsFormsSample.DataLayer.EntityFramework
         {
             using (var dbContext = new OrganizationEmployeeContext())
             {
-                return dbContext.Employee.Where(n => n.OrganizationId == organizationId).ToList();
+                return dbContext.Employee.Where(n => n.OrganizationId == organizationId).AsEnumerable();
             }
         }
 
@@ -39,7 +39,7 @@ namespace WindowsFormsSample.DataLayer.EntityFramework
                         DateOfBirth = employee.DateOfBirth,
                         PassportSeries = employee.PassportSeries,
                         PassportNumber = employee.PassportNumber,
-                        Comment = employee.Comment
+                        Comment = employee.Comment,
                     };
 
                     dbContext.Employee.Add(newEmployee);

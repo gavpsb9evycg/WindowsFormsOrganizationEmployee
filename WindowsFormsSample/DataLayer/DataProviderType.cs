@@ -1,5 +1,8 @@
 ﻿namespace WindowsFormsSample.DataLayer
 {
+    /// <summary>
+    /// Type of the data provider.
+    /// </summary>
     public enum DataProviderType
     {
         /// <summary>
@@ -10,6 +13,6 @@
         /// <summary>
         /// Entity Framework Core data provider.
         /// </summary>
-        EntityFrameworkCore
+        EntityFrameworkCore,
     }
 }

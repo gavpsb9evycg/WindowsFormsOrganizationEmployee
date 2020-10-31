@@ -34,7 +34,9 @@ namespace WindowsFormsSample.LogicLayer
         private static bool IsValid(IEnumerable<IEmployee> employeeList, string exportPath)
         {
             if (employeeList == null)
+            {
                 return false;
+            }
 
             // Check if the data to export exists.
             if (!employeeList.Any())
@@ -82,14 +84,18 @@ namespace WindowsFormsSample.LogicLayer
         private static void ExportToFile(StringBuilder dataBuilder, string exportPath, bool isOpenFile)
         {
             if (string.IsNullOrWhiteSpace(exportPath))
+            {
                 exportPath = $"export_{DateTime.Now:HHmmss.fff}.csv";
+            }
 
             try
             {
                 File.WriteAllText(exportPath, dataBuilder.ToString(), GetUtf8WithoutBom());
 
                 if (isOpenFile)
+                {
                     Process.Start(exportPath);
+                }
 
                 MessageBox.Show($"Data have been exported successfully. ExportPath: {exportPath}");
             }

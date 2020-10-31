@@ -7,7 +7,7 @@ using WindowsFormsSample.Items;
 namespace WindowsFormsSample.DataLayer.SqlClient
 {
     /// <summary>
-    /// SqlClient context
+    /// SqlClient context.
     /// </summary>
     public class SqlClientContext : IDataContext
     {
@@ -35,7 +35,7 @@ namespace WindowsFormsSample.DataLayer.SqlClient
                                 Inn = reader["Inn"].ToString(),
                                 LegalAddress = reader["LegalAddress"].ToString(),
                                 PhysicalAddress = reader["PhysicalAddress"].ToString(),
-                                Comment = reader["Comment"].ToString()
+                                Comment = reader["Comment"].ToString(),
                             };
 
                             organizationList.Add(item);
@@ -74,7 +74,7 @@ namespace WindowsFormsSample.DataLayer.SqlClient
                                 DateOfBirth = DateTime.Parse(reader["DateOfBirth"].ToString()),
                                 PassportSeries = reader["PassportSeries"].ToString(),
                                 PassportNumber = reader["PassportNumber"].ToString(),
-                                Comment = reader["Comment"].ToString()
+                                Comment = reader["Comment"].ToString(),
                             };
 
                             employeeList.Add(employee);
