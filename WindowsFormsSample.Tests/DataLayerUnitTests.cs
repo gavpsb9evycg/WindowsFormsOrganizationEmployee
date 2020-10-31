@@ -14,7 +14,7 @@ namespace WindowsFormsSample.Tests
         [Test]
         public void GetEmployeeListFromCsvTest()
         {
-            IEnumerable<IOrganization> organizationList = DataContext.GetOrganizationList();
+            IEnumerable<IOrganization> organizationList = DataContext.Current.GetOrganizationList();
             CollectionAssert.IsNotEmpty(organizationList);
         }
 
@@ -23,7 +23,7 @@ namespace WindowsFormsSample.Tests
         [TestCase(3)]
         public void GetEmployeeListFromCsvTest(int organizationId)
         {
-            IEnumerable<IEmployee> employeeList = DataContext.GetEmployeeListByOrganizationId(organizationId);
+            IEnumerable<IEmployee> employeeList = DataContext.Current.GetEmployeeListByOrganizationId(organizationId);
             CollectionAssert.IsNotEmpty(employeeList);
         }
     }

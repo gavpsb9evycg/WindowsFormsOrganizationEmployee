@@ -3,9 +3,12 @@ using System.Linq;
 
 namespace WindowsFormsSample.DataLayer.EntityFramework
 {
-    public static class EntityContext
+    /// <summary>
+    /// Entity Framework Core context
+    /// </summary>
+    public class EntityContext : IDataContext
     {
-        public static IEnumerable<IOrganization> GetOrganizationList()
+        public IEnumerable<IOrganization> GetOrganizationList()
         {
             using (var dbContext = new OrganizationEmployeeContext())
             {
@@ -13,7 +16,7 @@ namespace WindowsFormsSample.DataLayer.EntityFramework
             }
         }
 
-        public static IEnumerable<IEmployee> GetEmployeeListByOrganizationId(int organizationId)
+        public IEnumerable<IEmployee> GetEmployeeListByOrganizationId(int organizationId)
         {
             using (var dbContext = new OrganizationEmployeeContext())
             {
@@ -21,7 +24,7 @@ namespace WindowsFormsSample.DataLayer.EntityFramework
             }
         }
 
-        public static void ImportDataToDb(int organizationId, IEnumerable<IEmployee> employeeList)
+        public void ImportDataToDb(int organizationId, IEnumerable<IEmployee> employeeList)
         {
             using (var dbContext = new OrganizationEmployeeContext())
             {

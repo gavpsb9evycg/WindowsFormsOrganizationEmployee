@@ -42,9 +42,9 @@ namespace WindowsFormsSample.PresentationLayer
             employeeDataGridView.DataSource = GetEmployeeListByOrganizationId();
         }
 
-        private void dataContextTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void dataProviderTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataContext.DataContextType = GetDataContextType();
+            DataContext.Current.DataProviderType = GetDataProviderType();
         }
         #endregion
 
@@ -64,13 +64,15 @@ namespace WindowsFormsSample.PresentationLayer
 
             SetEnabledProperties(false);
 
-            dataContextTypeComboBox.DataSource = Enum.GetNames(typeof(DataContextType));
-            DataContext.DataContextType = GetDataContextType();
+            DataContext.Current.Init();
+
+            dataProviderTypeComboBox.DataSource = Enum.GetNames(typeof(DataProviderType));
+            DataContext.Current.DataProviderType = GetDataProviderType();
         }
 
-        private DataContextType GetDataContextType()
+        private DataProviderType GetDataProviderType()
         {
-            return (DataContextType)Enum.Parse(typeof(DataContextType), dataContextTypeComboBox.SelectedValue.ToString());
+            return (DataProviderType)Enum.Parse(typeof(DataProviderType), dataProviderTypeComboBox.SelectedValue.ToString());
         }
 
         /// <summary>
@@ -78,7 +80,7 @@ namespace WindowsFormsSample.PresentationLayer
         /// </summary>
         private void LoadOrganizationFromDb()
         {
-            IEnumerable<IOrganization> organizationList = DataContext.GetOrganizationList();
+            IEnumerable<IOrganization> organizationList = DataContext.Current.GetOrganizationList();
             organizationDataGridView.DataSource = organizationList;
 
             SetEnabledProperties(true);
@@ -117,7 +119,7 @@ namespace WindowsFormsSample.PresentationLayer
         private IEnumerable<IEmployee> GetEmployeeListByOrganizationId()
         {
             int organizationId = GetSelectedOrganizationId();
-            IEnumerable<IEmployee> employeeList = DataContext.GetEmployeeListByOrganizationId(organizationId);
+            IEnumerable<IEmployee> employeeList = DataContext.Current.GetEmployeeListByOrganizationId(organizationId);
             return employeeList;
         }
 

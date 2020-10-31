@@ -35,8 +35,8 @@
             this.loadFromDbButton = new System.Windows.Forms.Button();
             this.importFromCsvButton = new System.Windows.Forms.Button();
             this.exportToCsvButton = new System.Windows.Forms.Button();
-            this.dataContextTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.dataContextTypeLabel = new System.Windows.Forms.Label();
+            this.dataProviderTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.dataProviderTypeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.organizationDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -115,31 +115,31 @@
             this.exportToCsvButton.UseVisualStyleBackColor = true;
             this.exportToCsvButton.Click += new System.EventHandler(this.exportToCsvButton_Click);
             // 
-            // dataContextTypeComboBox
+            // dataProviderTypeComboBox
             // 
-            this.dataContextTypeComboBox.FormattingEnabled = true;
-            this.dataContextTypeComboBox.Location = new System.Drawing.Point(736, 3);
-            this.dataContextTypeComboBox.Name = "dataContextTypeComboBox";
-            this.dataContextTypeComboBox.Size = new System.Drawing.Size(142, 23);
-            this.dataContextTypeComboBox.TabIndex = 7;
-            this.dataContextTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dataContextTypeComboBox_SelectedIndexChanged);
+            this.dataProviderTypeComboBox.FormattingEnabled = true;
+            this.dataProviderTypeComboBox.Location = new System.Drawing.Point(736, 3);
+            this.dataProviderTypeComboBox.Name = "dataProviderTypeComboBox";
+            this.dataProviderTypeComboBox.Size = new System.Drawing.Size(142, 23);
+            this.dataProviderTypeComboBox.TabIndex = 7;
+            this.dataProviderTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dataProviderTypeComboBox_SelectedIndexChanged);
             // 
-            // dataContextTypeLabel
+            // dataProviderTypeLabel
             // 
-            this.dataContextTypeLabel.AutoSize = true;
-            this.dataContextTypeLabel.Location = new System.Drawing.Point(634, 9);
-            this.dataContextTypeLabel.Name = "dataContextTypeLabel";
-            this.dataContextTypeLabel.Size = new System.Drawing.Size(97, 15);
-            this.dataContextTypeLabel.TabIndex = 8;
-            this.dataContextTypeLabel.Text = "DataContextType";
+            this.dataProviderTypeLabel.AutoSize = true;
+            this.dataProviderTypeLabel.Location = new System.Drawing.Point(657, 9);
+            this.dataProviderTypeLabel.Name = "dataProviderTypeLabel";
+            this.dataProviderTypeLabel.Size = new System.Drawing.Size(75, 15);
+            this.dataProviderTypeLabel.TabIndex = 8;
+            this.dataProviderTypeLabel.Text = "DataProvider";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 601);
-            this.Controls.Add(this.dataContextTypeLabel);
-            this.Controls.Add(this.dataContextTypeComboBox);
+            this.Controls.Add(this.dataProviderTypeLabel);
+            this.Controls.Add(this.dataProviderTypeComboBox);
             this.Controls.Add(this.exportToCsvButton);
             this.Controls.Add(this.importFromCsvButton);
             this.Controls.Add(this.loadFromDbButton);
@@ -166,8 +166,8 @@
         private System.Windows.Forms.Button loadFromDbButton;
         private System.Windows.Forms.Button importFromCsvButton;
         private System.Windows.Forms.Button exportToCsvButton;
-        private System.Windows.Forms.ComboBox dataContextTypeComboBox;
-        private System.Windows.Forms.Label dataContextTypeLabel;
+        private System.Windows.Forms.ComboBox dataProviderTypeComboBox;
+        private System.Windows.Forms.Label dataProviderTypeLabel;
     }
 }
 

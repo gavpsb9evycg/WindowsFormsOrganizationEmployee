@@ -22,7 +22,7 @@ namespace WindowsFormsSample.LogicLayer
                 return;
 
             IEnumerable<IEmployee> employeeList = GetEmployeeListFromCsv(fileName);
-            DataContext.ImportDataToDb(organizationId, employeeList);
+            DataContext.Current.ImportDataToDb(organizationId, employeeList);
         }
 
         /// <summary>

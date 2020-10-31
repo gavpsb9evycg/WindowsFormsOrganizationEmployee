@@ -1,14 +1,14 @@
 ﻿namespace WindowsFormsSample.DataLayer
 {
-    public enum DataContextType
+    public enum DataProviderType
     {
         /// <summary>
-        /// SqlClient data context
+        /// SqlClient data provider.
         /// </summary>
         SqlClient = 1,
 
         /// <summary>
-        /// Entity Framework Core data context
+        /// Entity Framework Core data provider.
         /// </summary>
         EntityFrameworkCore
     }
