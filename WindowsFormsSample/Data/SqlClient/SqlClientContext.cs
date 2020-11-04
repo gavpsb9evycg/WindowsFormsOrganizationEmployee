@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using WindowsFormsSample.Items;
+using WindowsFormsSample.Models;
 
-namespace WindowsFormsSample.DataLayer.SqlClient
+namespace WindowsFormsSample.Data.SqlClient
 {
     /// <summary>
     /// SqlClient context.
@@ -28,7 +28,7 @@ namespace WindowsFormsSample.DataLayer.SqlClient
                     {
                         while (reader.Read())
                         {
-                            var item = new OrganizationItem
+                            var item = new Organization
                             {
                                 Id = (int)reader["Id"],
                                 Name = reader["Name"].ToString(),
@@ -65,7 +65,7 @@ namespace WindowsFormsSample.DataLayer.SqlClient
                     {
                         while (reader.Read())
                         {
-                            var employee = new EmployeeItem
+                            var employee = new Employee
                             {
                                 Id = (int)reader["Id"],
                                 LastName = reader["LastName"].ToString(),

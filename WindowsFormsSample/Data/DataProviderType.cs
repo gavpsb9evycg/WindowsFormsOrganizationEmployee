@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsSample.DataLayer
+﻿namespace WindowsFormsSample.Data
 {
     /// <summary>
     /// Type of the data provider.

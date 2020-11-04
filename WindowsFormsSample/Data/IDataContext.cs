@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WindowsFormsSample.DataLayer
+namespace WindowsFormsSample.Data
 {
     public interface IDataContext
     {

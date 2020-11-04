@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsSample.DataLayer
+﻿namespace WindowsFormsSample.Data
 {
     public interface IOrganization
     {

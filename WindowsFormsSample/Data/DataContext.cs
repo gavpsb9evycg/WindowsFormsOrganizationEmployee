@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using WindowsFormsSample.DataLayer.EntityFramework;
-using WindowsFormsSample.DataLayer.SqlClient;
+using WindowsFormsSample.Data.EntityFramework;
+using WindowsFormsSample.Data.SqlClient;
 
-namespace WindowsFormsSample.DataLayer
+namespace WindowsFormsSample.Data
 {
     /// <summary>
     /// Routing data context.

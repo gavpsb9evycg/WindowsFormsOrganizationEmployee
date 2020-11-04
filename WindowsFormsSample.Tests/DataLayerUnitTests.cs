@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
-using WindowsFormsSample.DataLayer;
+using WindowsFormsSample.Data;
 
 namespace WindowsFormsSample.Tests
 {

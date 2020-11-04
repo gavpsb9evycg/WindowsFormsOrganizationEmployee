@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using WindowsFormsSample.Models;
 
-namespace WindowsFormsSample.DataLayer.EntityFramework
+namespace WindowsFormsSample.Data.EntityFramework
 {
     /// <summary>
     /// Entity Framework Core context.
@@ -12,7 +13,7 @@ namespace WindowsFormsSample.DataLayer.EntityFramework
         {
             using (var dbContext = new OrganizationEmployeeContext())
             {
-                return dbContext.Organization.AsEnumerable();
+                return dbContext.Organization.ToList();
             }
         }
 
@@ -20,7 +21,7 @@ namespace WindowsFormsSample.DataLayer.EntityFramework
         {
             using (var dbContext = new OrganizationEmployeeContext())
             {
-                return dbContext.Employee.Where(n => n.OrganizationId == organizationId).AsEnumerable();
+                return dbContext.Employee.Where(n => n.OrganizationId == organizationId).ToList();
             }
         }
 

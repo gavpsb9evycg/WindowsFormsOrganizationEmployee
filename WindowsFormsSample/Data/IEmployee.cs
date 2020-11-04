@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsFormsSample.DataLayer
+namespace WindowsFormsSample.Data
 {
     public interface IEmployee
     {

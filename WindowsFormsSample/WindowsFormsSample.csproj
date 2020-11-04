@@ -11,8 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DataLayer\SqlClient\Items\" />
-    <Folder Include="LogicLayer\" />
+    <Folder Include="Logic\" />
   </ItemGroup>
 
   <ItemGroup>

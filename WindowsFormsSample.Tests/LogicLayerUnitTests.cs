@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
-using WindowsFormsSample.DataLayer;
-using WindowsFormsSample.LogicLayer;
+using WindowsFormsSample.Data;
+using WindowsFormsSample.Logic;
 
 namespace WindowsFormsSample.Tests
 {

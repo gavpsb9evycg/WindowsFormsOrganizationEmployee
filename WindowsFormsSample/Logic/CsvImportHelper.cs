@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using WindowsFormsSample.DataLayer;
-using WindowsFormsSample.Items;
+using WindowsFormsSample.Data;
+using WindowsFormsSample.Models;
 
-namespace WindowsFormsSample.LogicLayer
+namespace WindowsFormsSample.Logic
 {
     /// <summary>
     /// Csv import helper class.
@@ -46,7 +46,7 @@ namespace WindowsFormsSample.LogicLayer
                 if (parts.Length != Consts.CsvPartCount)
                     continue;
 
-                var item = new EmployeeItem
+                var item = new Employee
                 {
                     LastName = parts[0],
                     Name = parts[1],

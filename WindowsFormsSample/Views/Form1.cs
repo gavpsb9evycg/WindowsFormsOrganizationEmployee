@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using WindowsFormsSample.DataLayer;
-using WindowsFormsSample.LogicLayer;
+using WindowsFormsSample.Data;
+using WindowsFormsSample.Logic;
 
-namespace WindowsFormsSample.PresentationLayer
+namespace WindowsFormsSample.Views
 {
     /// <summary>
     /// Main form.
