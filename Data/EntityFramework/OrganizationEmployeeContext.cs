@@ -1,8 +1,8 @@
-﻿using Data.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace Data.EntityFramework
+﻿namespace Data.EntityFramework
 {
+    using Data.Models;
+    using Microsoft.EntityFrameworkCore;
+
     public partial class OrganizationEmployeeContext : DbContext
     {
         public OrganizationEmployeeContext()
@@ -21,7 +21,7 @@ namespace Data.EntityFramework
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(Consts.ConnectionString);
+                optionsBuilder.UseSqlServer(DataContext.ConnectionString);
             }
         }
 

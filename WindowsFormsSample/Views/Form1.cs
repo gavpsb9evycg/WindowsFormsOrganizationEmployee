@@ -1,11 +1,11 @@
-﻿using Data;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using WindowsFormsSample.Logic;
-
-namespace WindowsFormsSample.Views
+﻿namespace WindowsFormsSample.Views
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Forms;
+    using Data;
+    using WindowsFormsSample.Logic;
+
     /// <summary>
     /// Main form.
     /// </summary>
@@ -58,7 +58,7 @@ namespace WindowsFormsSample.Views
 
             this.SetEnabledProperties(false);
 
-            DataContext.Current.Init();
+            DataContext.Current.Init(Consts.ConnectionString);
 
             this.dataProviderTypeComboBox.DataSource = Enum.GetNames(typeof(DataProviderType));
             DataContext.Current.DataProviderType = this.GetDataProviderType();

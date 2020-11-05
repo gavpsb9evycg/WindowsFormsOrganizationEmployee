@@ -1,9 +1,9 @@
-using System;
-using System.Windows.Forms;
-using WindowsFormsSample.Views;
-
 namespace WindowsFormsSample
 {
+    using System;
+    using System.Windows.Forms;
+    using WindowsFormsSample.Views;
+
     static class Program
     {
         /// <summary>

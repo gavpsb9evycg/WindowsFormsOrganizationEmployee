@@ -1,10 +1,11 @@
-using Data;
-using NUnit.Framework;
-using System.Collections.Generic;
-using WindowsFormsSample.Logic;
-
 namespace WindowsFormsSample.Tests
 {
+    using System.Collections.Generic;
+    using Data;
+    using NUnit.Framework;
+    using WindowsFormsSample.Logic;
+
+    [TestFixture]
     public class LogicLayerUnitTests
     {
         [SetUp]

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace Data.Models
+﻿namespace Data.Models
 {
+    using System.Collections.Generic;
+
     public class Organization : IOrganization
     {
         public Organization()

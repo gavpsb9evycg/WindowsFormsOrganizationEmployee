@@ -1,14 +1,14 @@
-﻿using Data;
-using Microsoft.EntityFrameworkCore.Internal;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
-
-namespace WindowsFormsSample.Logic
+﻿namespace WindowsFormsSample.Logic
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Text;
+    using System.Windows.Forms;
+    using Data;
+    using Microsoft.EntityFrameworkCore.Internal;
+
     /// <summary>
     /// Csv export helper class.
     /// </summary>

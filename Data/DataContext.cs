@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using Data.EntityFramework;
-using Data.SqlClient;
-
-namespace Data
+﻿namespace Data
 {
+    using System.Collections.Generic;
+    using Data.EntityFramework;
+    using Data.SqlClient;
+
     /// <summary>
     /// Routing data context.
     /// </summary>
@@ -33,6 +33,11 @@ namespace Data
         }
 
         /// <summary>
+        /// Gets or sets ConnectionString.
+        /// </summary>
+        public static string ConnectionString { get; set; }
+
+        /// <summary>
         /// Gets or sets type of the data provider.
         /// </summary>
         public DataProviderType DataProviderType { get; set; } = DataProviderType.SqlClient;
@@ -40,8 +45,10 @@ namespace Data
         /// <summary>
         /// Initialization.
         /// </summary>
-        public void Init()
+        public void Init(string connectionString)
         {
+            ConnectionString = connectionString;
+
             if (!this.dataProviderContext.ContainsKey(DataProviderType.SqlClient))
             {
                 this.dataProviderContext.Add(DataProviderType.SqlClient, new SqlClientContext());

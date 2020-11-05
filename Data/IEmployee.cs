@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Data
+﻿namespace Data
 {
+    using System;
+
     public interface IEmployee
     {
         int Id { get; set; }

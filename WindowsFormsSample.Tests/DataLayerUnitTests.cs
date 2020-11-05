@@ -4,12 +4,13 @@
     using Data;
     using NUnit.Framework;
 
+    [TestFixture]
     public class DataLayerUnitTests
     {
         [OneTimeSetUp]
         public void Setup()
         {
-            DataContext.Current.Init();
+            DataContext.Current.Init(Consts.ConnectionString);
         }
 
         [Test]

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Data.Models
+﻿namespace Data.Models
 {
+    using System;
+
     public class Employee : IEmployee
     {
         public int Id { get; set; }

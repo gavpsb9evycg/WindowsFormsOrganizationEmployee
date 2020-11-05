@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Data.Models;
-
-namespace Data.EntityFramework
+﻿namespace Data.EntityFramework
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Data.Models;
+
     /// <summary>
     /// Entity Framework Core context.
     /// </summary>

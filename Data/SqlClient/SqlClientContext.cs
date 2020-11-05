@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Data.Models;
-using Microsoft.Data.SqlClient;
-
-namespace Data.SqlClient
+﻿namespace Data.SqlClient
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using Data.Models;
+    using Microsoft.Data.SqlClient;
+
     /// <summary>
     /// SqlClient context.
     /// </summary>
@@ -15,7 +15,7 @@ namespace Data.SqlClient
         {
             var organizationList = new List<IOrganization>();
 
-            using (var connection = new SqlConnection(Consts.ConnectionString))
+            using (var connection = new SqlConnection(DataContext.ConnectionString))
             {
                 connection.Open();
 
@@ -51,7 +51,7 @@ namespace Data.SqlClient
         {
             var employeeList = new List<IEmployee>();
 
-            using (var connection = new SqlConnection(Consts.ConnectionString))
+            using (var connection = new SqlConnection(DataContext.ConnectionString))
             {
                 connection.Open();
 
@@ -88,7 +88,7 @@ namespace Data.SqlClient
 
         public void ImportDataToDb(int organizationId, IEnumerable<IEmployee> employeeList)
         {
-            using (var connection = new SqlConnection(Consts.ConnectionString))
+            using (var connection = new SqlConnection(DataContext.ConnectionString))
             {
                 connection.Open();
 
