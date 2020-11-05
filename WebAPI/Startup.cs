@@ -14,6 +14,7 @@ namespace WebAPI
         public Startup(IConfiguration configuration)
         {
             this.Configuration = configuration;
+            DataContext.Current.Init(Consts.ConnectionString);
         }
 
         public IConfiguration Configuration { get; }
