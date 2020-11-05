@@ -11,23 +11,23 @@
     {
         public IEnumerable<IOrganization> GetOrganizationList()
         {
-            using (var dbContext = new OrganizationEmployeeContext())
+            using (var context = new OrganizationEmployeeContext())
             {
-                return dbContext.Organization.ToList();
+                return context.Organization.ToList();
             }
         }
 
         public IEnumerable<IEmployee> GetEmployeeListByOrganizationId(int organizationId)
         {
-            using (var dbContext = new OrganizationEmployeeContext())
+            using (var context = new OrganizationEmployeeContext())
             {
-                return dbContext.Employee.Where(n => n.OrganizationId == organizationId).ToList();
+                return context.Employee.Where(n => n.OrganizationId == organizationId).ToList();
             }
         }
 
         public void ImportDataToDb(int organizationId, IEnumerable<IEmployee> employeeList)
         {
-            using (var dbContext = new OrganizationEmployeeContext())
+            using (var context = new OrganizationEmployeeContext())
             {
                 foreach (IEmployee employee in employeeList)
                 {
@@ -43,10 +43,10 @@
                         Comment = employee.Comment,
                     };
 
-                    dbContext.Employee.Add(newEmployee);
+                    context.Employee.Add(newEmployee);
                 }
 
-                dbContext.SaveChanges();
+                context.SaveChanges();
             }
         }
     }

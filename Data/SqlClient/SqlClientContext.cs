@@ -15,7 +15,7 @@
         {
             var organizationList = new List<IOrganization>();
 
-            using (var connection = new SqlConnection(DataContext.ConnectionString))
+            using (var connection = new SqlConnection(DataContext.Current.ConnectionString))
             {
                 connection.Open();
 
@@ -51,7 +51,7 @@
         {
             var employeeList = new List<IEmployee>();
 
-            using (var connection = new SqlConnection(DataContext.ConnectionString))
+            using (var connection = new SqlConnection(DataContext.Current.ConnectionString))
             {
                 connection.Open();
 
@@ -88,7 +88,7 @@
 
         public void ImportDataToDb(int organizationId, IEnumerable<IEmployee> employeeList)
         {
-            using (var connection = new SqlConnection(DataContext.ConnectionString))
+            using (var connection = new SqlConnection(DataContext.Current.ConnectionString))
             {
                 connection.Open();
 

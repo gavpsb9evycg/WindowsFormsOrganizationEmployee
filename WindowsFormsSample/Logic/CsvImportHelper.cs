@@ -6,7 +6,6 @@
     using System.Windows.Forms;
     using Data;
     using Data.Models;
-    using WindowsFormsSample;
 
     /// <summary>
     /// Csv import helper class.

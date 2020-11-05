@@ -21,7 +21,7 @@
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(DataContext.ConnectionString);
+                optionsBuilder.UseSqlServer(DataContext.Current.ConnectionString);
             }
         }
 

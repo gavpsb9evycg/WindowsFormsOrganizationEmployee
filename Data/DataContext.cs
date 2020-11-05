@@ -33,9 +33,9 @@
         }
 
         /// <summary>
-        /// Gets or sets ConnectionString.
+        /// Gets connectionString.
         /// </summary>
-        public static string ConnectionString { get; set; }
+        public string ConnectionString { get; private set; }
 
         /// <summary>
         /// Gets or sets type of the data provider.
@@ -47,7 +47,7 @@
         /// </summary>
         public void Init(string connectionString)
         {
-            ConnectionString = connectionString;
+            this.ConnectionString = connectionString;
 
             if (!this.dataProviderContext.ContainsKey(DataProviderType.SqlClient))
             {
@@ -72,7 +72,7 @@
         /// <summary>
         /// Get employee items from database according selected organization id.
         /// </summary>
-        /// <param name="organizationId">the id of the organization</param>
+        /// <param name="organizationId">The id of the organization.</param>
         /// <returns>Returns a collection of employees.</returns>
         public IEnumerable<IEmployee> GetEmployeeListByOrganizationId(int organizationId)
         {
