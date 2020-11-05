@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsFormsSample.Data
+namespace Data
 {
     public interface IEmployee
     {

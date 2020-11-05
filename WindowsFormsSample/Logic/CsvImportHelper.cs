@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Data;
+using Data.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using WindowsFormsSample.Data;
-using WindowsFormsSample.Models;
 
 namespace WindowsFormsSample.Logic
 {

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsSample.Data
+﻿namespace Data
 {
     public interface IOrganization
     {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using WindowsFormsSample.Data.EntityFramework;
-using WindowsFormsSample.Data.SqlClient;
+using Data.EntityFramework;
+using Data.SqlClient;
 
-namespace WindowsFormsSample.Data
+namespace Data
 {
     /// <summary>
     /// Routing data context.
@@ -35,15 +35,22 @@ namespace WindowsFormsSample.Data
         /// <summary>
         /// Gets or sets type of the data provider.
         /// </summary>
-        public DataProviderType DataProviderType { get; set; }
+        public DataProviderType DataProviderType { get; set; } = DataProviderType.SqlClient;
 
         /// <summary>
         /// Initialization.
         /// </summary>
         public void Init()
         {
-            this.dataProviderContext.Add(DataProviderType.SqlClient, new SqlClientContext());
-            this.dataProviderContext.Add(DataProviderType.EntityFrameworkCore, new EntityContext());
+            if (!this.dataProviderContext.ContainsKey(DataProviderType.SqlClient))
+            {
+                this.dataProviderContext.Add(DataProviderType.SqlClient, new SqlClientContext());
+            }
+
+            if (!this.dataProviderContext.ContainsKey(DataProviderType.EntityFrameworkCore))
+            {
+                this.dataProviderContext.Add(DataProviderType.EntityFrameworkCore, new EntityContext());
+            }
         }
 
         /// <summary>

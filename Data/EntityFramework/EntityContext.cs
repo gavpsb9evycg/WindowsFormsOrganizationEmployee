@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WindowsFormsSample.Models;
+using Data.Models;
 
-namespace WindowsFormsSample.Data.EntityFramework
+namespace Data.EntityFramework
 {
     /// <summary>
     /// Entity Framework Core context.

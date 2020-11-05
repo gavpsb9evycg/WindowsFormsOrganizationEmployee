@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using WindowsFormsSample.Models;
+using Data.Models;
+using Microsoft.Data.SqlClient;
 
-namespace WindowsFormsSample.Data.SqlClient
+namespace Data.SqlClient
 {
     /// <summary>
     /// SqlClient context.

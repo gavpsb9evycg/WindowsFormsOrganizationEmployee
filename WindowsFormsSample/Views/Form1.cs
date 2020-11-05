@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using WindowsFormsSample.Data;
 using WindowsFormsSample.Logic;
 
 namespace WindowsFormsSample.Views
@@ -13,14 +13,14 @@ namespace WindowsFormsSample.Views
     {
         public Form1()
         {
-            InitializeComponent();
-            Init();
+            this.InitializeComponent();
+            this.Init();
         }
 
         #region Event handlers
         private void loadOrganizationFromDbButton_Click(object sender, EventArgs e)
         {
-            LoadOrganizationFromDb();
+            this.LoadOrganizationFromDb();
         }
 
         private void importFromCsvButton_Click(object sender, EventArgs e)
@@ -28,23 +28,23 @@ namespace WindowsFormsSample.Views
             ImportEmployeesFromCsv();
 
             // Refresh employee list.
-            employeeDataGridView.DataSource = GetEmployeeListByOrganizationId();
+            this.employeeDataGridView.DataSource = this.GetEmployeeListByOrganizationId();
             MessageBox.Show("Data have been imported and refreshed");
         }
 
         private void exportToCsvButton_Click(object sender, EventArgs e)
         {
-            ExportEmployeesToCsv();
+            this.ExportEmployeesToCsv();
         }
 
         private void dgvOrganization_SelectionChanged(object sender, EventArgs e)
         {
-            employeeDataGridView.DataSource = GetEmployeeListByOrganizationId();
+            this.employeeDataGridView.DataSource = this.GetEmployeeListByOrganizationId();
         }
 
         private void dataProviderTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataContext.Current.DataProviderType = GetDataProviderType();
+            DataContext.Current.DataProviderType = this.GetDataProviderType();
         }
         #endregion
 
@@ -53,26 +53,31 @@ namespace WindowsFormsSample.Views
         /// </summary>
         private void Init()
         {
-            // Init organization grid properties.
-            organizationDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            organizationDataGridView.MultiSelect = false;
-            organizationDataGridView.ReadOnly = true;
+            this.InitGridProperties(this.organizationDataGridView);
+            this.InitGridProperties(this.employeeDataGridView);
 
-            // Init employee grid properties.
-            employeeDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            employeeDataGridView.ReadOnly = true;
-
-            SetEnabledProperties(false);
+            this.SetEnabledProperties(false);
 
             DataContext.Current.Init();
 
-            dataProviderTypeComboBox.DataSource = Enum.GetNames(typeof(DataProviderType));
-            DataContext.Current.DataProviderType = GetDataProviderType();
+            this.dataProviderTypeComboBox.DataSource = Enum.GetNames(typeof(DataProviderType));
+            DataContext.Current.DataProviderType = this.GetDataProviderType();
+        }
+
+        private void InitGridProperties(DataGridView dataGridView)
+        {
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.MultiSelect = false;
+            dataGridView.ReadOnly = true;
         }
 
         private DataProviderType GetDataProviderType()
         {
-            return (DataProviderType)Enum.Parse(typeof(DataProviderType), dataProviderTypeComboBox.SelectedValue.ToString());
+            object selectedValue = this.dataProviderTypeComboBox.SelectedValue;
+
+            return selectedValue != null
+                ? (DataProviderType) Enum.Parse(typeof(DataProviderType), selectedValue.ToString())
+                : DataProviderType.SqlClient;
         }
 
         /// <summary>
@@ -81,9 +86,9 @@ namespace WindowsFormsSample.Views
         private void LoadOrganizationFromDb()
         {
             IEnumerable<IOrganization> organizationList = DataContext.Current.GetOrganizationList();
-            organizationDataGridView.DataSource = organizationList;
+            this.organizationDataGridView.DataSource = organizationList;
 
-            SetEnabledProperties(true);
+            this.SetEnabledProperties(true);
         }
 
         /// <summary>
@@ -91,8 +96,8 @@ namespace WindowsFormsSample.Views
         /// </summary>
         private void SetEnabledProperties(bool isEnabled)
         {
-            importFromCsvButton.Enabled = isEnabled;
-            exportToCsvButton.Enabled = isEnabled;
+            this.importFromCsvButton.Enabled = isEnabled;
+            this.exportToCsvButton.Enabled = isEnabled;
         }
 
         /// <summary>
@@ -100,7 +105,7 @@ namespace WindowsFormsSample.Views
         /// </summary>
         private void ImportEmployeesFromCsv()
         {
-            int organizationId = GetSelectedOrganizationId();
+            int organizationId = this.GetSelectedOrganizationId();
             CsvImportHelper.ImportEmployeesFromCsv(organizationId);
         }
 
@@ -109,7 +114,7 @@ namespace WindowsFormsSample.Views
         /// </summary>
         private void ExportEmployeesToCsv()
         {
-            IEnumerable<IEmployee> employeeList = GetEmployeeListByOrganizationId();
+            IEnumerable<IEmployee> employeeList = this.GetEmployeeListByOrganizationId();
             CsvExportHelper.ExportEmployeesToCsv(employeeList);
         }
 
@@ -118,7 +123,7 @@ namespace WindowsFormsSample.Views
         /// </summary>
         private IEnumerable<IEmployee> GetEmployeeListByOrganizationId()
         {
-            int organizationId = GetSelectedOrganizationId();
+            int organizationId = this.GetSelectedOrganizationId();
             IEnumerable<IEmployee> employeeList = DataContext.Current.GetEmployeeListByOrganizationId(organizationId);
             return employeeList;
         }
@@ -130,7 +135,7 @@ namespace WindowsFormsSample.Views
         {
             int organizationId = 0;
 
-            foreach (DataGridViewRow row in organizationDataGridView.SelectedRows)
+            foreach (DataGridViewRow row in this.organizationDataGridView.SelectedRows)
             {
                 organizationId = (int)row.Cells[0].Value;
             }

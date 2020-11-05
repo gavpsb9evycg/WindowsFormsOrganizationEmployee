@@ -1,14 +1,15 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
-using WindowsFormsSample.Data;
-
-namespace WindowsFormsSample.Tests
+﻿namespace WindowsFormsSample.Tests
 {
+    using System.Collections.Generic;
+    using Data;
+    using NUnit.Framework;
+
     public class DataLayerUnitTests
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
+            DataContext.Current.Init();
         }
 
         [Test]

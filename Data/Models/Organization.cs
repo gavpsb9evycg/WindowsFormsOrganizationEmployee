@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using WindowsFormsSample.Data;
 
-namespace WindowsFormsSample.Models
+namespace Data.Models
 {
     public class Organization : IOrganization
     {

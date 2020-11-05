@@ -1,7 +1,6 @@
 ﻿using System;
-using WindowsFormsSample.Data;
 
-namespace WindowsFormsSample.Models
+namespace Data.Models
 {
     public class Employee : IEmployee
     {

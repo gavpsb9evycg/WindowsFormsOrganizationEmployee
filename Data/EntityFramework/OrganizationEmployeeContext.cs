@@ -1,7 +1,7 @@
-﻿using WindowsFormsSample.Models;
+﻿using Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace WindowsFormsSample.Data.EntityFramework
+namespace Data.EntityFramework
 {
     public partial class OrganizationEmployeeContext : DbContext
     {

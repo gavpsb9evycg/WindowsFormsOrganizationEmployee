@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsSample.Data
+﻿namespace Data
 {
     /// <summary>
     /// Type of the data provider.

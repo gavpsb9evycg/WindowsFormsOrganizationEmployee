@@ -1,6 +1,6 @@
+using Data;
 using NUnit.Framework;
 using System.Collections.Generic;
-using WindowsFormsSample.Data;
 using WindowsFormsSample.Logic;
 
 namespace WindowsFormsSample.Tests
