@@ -7,16 +7,19 @@
     using Data.Models;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Logging;
 
     [Route("[controller]")]
     [ApiController]
     public class OrganizationsController : ControllerBase
     {
         private readonly OrganizationEmployeeContext context;
+        private readonly ILogger<OrganizationsController> logger;
 
-        public OrganizationsController(OrganizationEmployeeContext context)
+        public OrganizationsController(OrganizationEmployeeContext context, ILogger<OrganizationsController> logger)
         {
             this.context = context;
+            this.logger = logger;
         }
 
         // GET: Organizations
