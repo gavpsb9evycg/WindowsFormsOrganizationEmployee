@@ -81,7 +81,7 @@
             this.context.Organization.Add(organization);
             await this.context.SaveChangesAsync();
 
-            return this.CreatedAtAction("GetOrganization", new { id = organization.Id }, organization);
+            return this.CreatedAtAction(nameof(GetOrganization), new { id = organization.Id }, organization);
         }
 
         // DELETE: Organizations/5

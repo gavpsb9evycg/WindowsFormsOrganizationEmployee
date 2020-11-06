@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Data;
     using Data.EntityFramework;
     using Data.Models;
     using Microsoft.AspNetCore.Mvc;
@@ -27,26 +26,6 @@
             return await this.context.Employee.Where(n => n.OrganizationId == organizationId).ToListAsync();
         }
 
-        // POST: Employees/ImportDataToDb/5
-        [HttpPost("ImportDataToDb/{organizationId}")]
-        public void ImportDataToDb(int organizationId, IEnumerable<IEmployee> employeeList)
-        {
-            //DataContext.Current.ImportDataToDb(organizationId, employeeList);
-        }
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployeeListByOrganizationId()
-        {
-            return await this.context.Employee.ToListAsync();
-        }
-
-        // GET: Employees
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee()
-        {
-            return await this.context.Employee.ToListAsync();
-        }
-
         // GET: Employees/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Employee>> GetEmployee(int id)
@@ -62,8 +41,6 @@
         }
 
         // PUT: Employees/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEmployee(int id, Employee employee)
         {
@@ -80,7 +57,7 @@
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!IsEmployeeExists(id))
+                if (!this.IsEmployeeExists(id))
                 {
                     return NotFound();
                 }
@@ -93,16 +70,29 @@
             return NoContent();
         }
 
+        // POST: Employees/ImportDataToDb/5
+        [HttpPost("ImportDataToDb/{organizationId}")]
+        public async Task<IActionResult> ImportDataToDb(int organizationId, IEnumerable<Employee> employeeList)
+        {
+            foreach (Employee employee in employeeList)
+            {
+                employee.Id = 0;
+                employee.OrganizationId = organizationId;
+                this.context.Employee.Add(employee);
+            }
+
+            await this.context.SaveChangesAsync();
+            return NoContent();
+        }
+
         // POST: Employees
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Employee>> PostEmployee(Employee employee)
         {
             this.context.Employee.Add(employee);
             await this.context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
+            return this.CreatedAtAction(nameof(GetEmployee), new { id = employee.Id }, employee);
         }
 
         // DELETE: Employees/5

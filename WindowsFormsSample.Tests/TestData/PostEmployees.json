@@ -1,0 +1,24 @@
+[
+    {
+        "organizationId": 1,
+        "lastName": "LastName38_22",
+        "name": "Name38",
+        "middleName": "MiddleName38",
+        "dateOfBirth": "1985-01-08T00:00:00",
+        "passportSeries": "0038",
+        "passportNumber": "003008",
+        "comment": "Comment38",
+        "organization": null
+    },
+    {
+        "organizationId": 1,
+        "lastName": "LastName39_33",
+        "name": "Name39",
+        "middleName": "MiddleName39",
+        "dateOfBirth": "1985-01-09T00:00:00",
+        "passportSeries": "0039",
+        "passportNumber": "003009",
+        "comment": "Comment39",
+        "organization": null
+    }
+]
