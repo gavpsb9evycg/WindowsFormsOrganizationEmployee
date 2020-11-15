@@ -1,7 +1,7 @@
 namespace WindowsFormsSample.Tests
 {
     using System.Collections.Generic;
-    using Data;
+    using Data.Models;
     using NUnit.Framework;
     using WindowsFormsSample.Logic;
 
@@ -16,7 +16,7 @@ namespace WindowsFormsSample.Tests
         [TestCase(@"..\..\..\TestData\TestEmployees.csv")]
         public void GetEmployeeListFromCsvTest(string fileName)
         {
-            IEnumerable<IEmployee> employeeList = CsvImportHelper.GetEmployeeListFromCsv(fileName);
+            IEnumerable<Employee> employeeList = CsvImportHelper.GetEmployeeListFromCsv(fileName);
             CollectionAssert.IsNotEmpty(employeeList);
         }
     }

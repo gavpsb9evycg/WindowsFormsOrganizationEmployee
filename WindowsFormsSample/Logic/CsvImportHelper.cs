@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsSample.Logic
+﻿using System.Threading.Tasks;
+
+namespace WindowsFormsSample.Logic
 {
     using System;
     using System.Collections.Generic;
@@ -15,22 +17,24 @@
         /// <summary>
         /// Import employees items from csv file.
         /// </summary>
-        public static void ImportEmployeesFromCsv(int organizationId)
+        public static async Task<IEnumerable<Employee>> ImportEmployeesFromCsv(int organizationId)
         {
             string fileName = GetFileName();
             if (string.IsNullOrWhiteSpace(fileName))
-                return;
+            {
+                return null;
+            }
 
-            IEnumerable<IEmployee> employeeList = GetEmployeeListFromCsv(fileName);
-            DataContext.Current.ImportDataToDb(organizationId, employeeList);
+            IEnumerable<Employee> employeeList = GetEmployeeListFromCsv(fileName);
+            return await WebAPIHelper.ImportEmployeesByOrganizationId(organizationId, employeeList);
         }
 
         /// <summary>
         /// Get employee items from csv file.
         /// </summary>
-        public static IEnumerable<IEmployee> GetEmployeeListFromCsv(string fileName)
+        public static IEnumerable<Employee> GetEmployeeListFromCsv(string fileName)
         {
-            var employeeList = new List<IEmployee>();
+            var employeeList = new List<Employee>();
 
             string[] lines = File.ReadAllLines(fileName);
 
@@ -66,7 +70,7 @@
         /// <summary>
         /// Get file name for import data.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns file name.</returns>
         private static string GetFileName()
         {
             var dialog = new OpenFileDialog

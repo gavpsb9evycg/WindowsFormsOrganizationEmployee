@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsSample.Logic
+﻿using Data.Models;
+
+namespace WindowsFormsSample.Logic
 {
     using System;
     using System.Collections.Generic;
@@ -17,7 +19,7 @@
         /// <summary>
         /// Export employees items to csv file.
         /// </summary>
-        public static void ExportEmployeesToCsv(IEnumerable<IEmployee> employeeList, string exportPath = "", bool isOpenFile = false)
+        public static void ExportEmployeesToCsv(IEnumerable<Employee> employeeList, string exportPath = "", bool isOpenFile = false)
         {
             if (!IsValid(employeeList, exportPath))
                 return;
@@ -31,7 +33,7 @@
         /// Check is valid.
         /// </summary>
         /// <returns></returns>
-        private static bool IsValid(IEnumerable<IEmployee> employeeList, string exportPath)
+        private static bool IsValid(IEnumerable<Employee> employeeList, string exportPath)
         {
             if (employeeList == null)
             {
@@ -62,7 +64,7 @@
         /// Create data for export.
         /// </summary>
         /// <returns></returns>
-        private static StringBuilder CreateExportData(IEnumerable<IEmployee> employeeList)
+        private static StringBuilder CreateExportData(IEnumerable<Employee> employeeList)
         {
             var dataBuilder = new StringBuilder();
 
@@ -70,7 +72,7 @@
             dataBuilder.AppendFormat($"Id,{Consts.CsvHeader}\r\n");
 
             // Create body.
-            foreach (IEmployee item in employeeList)
+            foreach (Employee item in employeeList)
             {
                 dataBuilder.AppendFormat($"{item.Id},{item.LastName},{item.Name},{item.MiddleName},{item.DateOfBirth:yyyyMMdd},{item.PassportSeries},{item.PassportNumber},{item.Comment}\r\n");
             }

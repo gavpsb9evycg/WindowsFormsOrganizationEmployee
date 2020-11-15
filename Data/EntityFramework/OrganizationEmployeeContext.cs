@@ -15,13 +15,14 @@
         }
 
         public virtual DbSet<Employee> Employee { get; set; }
+
         public virtual DbSet<Organization> Organization { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(DataContext.Current.ConnectionString);
+                optionsBuilder.UseSqlServer(Consts.ConnectionString);
             }
         }
 

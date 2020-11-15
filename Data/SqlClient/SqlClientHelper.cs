@@ -7,15 +7,15 @@
     using Microsoft.Data.SqlClient;
 
     /// <summary>
-    /// SqlClient context.
+    /// SqlClient Helper.
     /// </summary>
-    public class SqlClientContext : IDataContext
+    public class SqlClientHelper
     {
-        public IEnumerable<IOrganization> GetOrganizationList()
+        public IEnumerable<Organization> GetOrganizationList()
         {
-            var organizationList = new List<IOrganization>();
+            var organizationList = new List<Organization>();
 
-            using (var connection = new SqlConnection(DataContext.Current.ConnectionString))
+            using (var connection = new SqlConnection(Consts.ConnectionString))
             {
                 connection.Open();
 
@@ -47,11 +47,11 @@
             return organizationList;
         }
 
-        public IEnumerable<IEmployee> GetEmployeeListByOrganizationId(int organizationId)
+        public IEnumerable<Employee> GetEmployeeListByOrganizationId(int organizationId)
         {
-            var employeeList = new List<IEmployee>();
+            var employeeList = new List<Employee>();
 
-            using (var connection = new SqlConnection(DataContext.Current.ConnectionString))
+            using (var connection = new SqlConnection(Consts.ConnectionString))
             {
                 connection.Open();
 
@@ -86,13 +86,13 @@
             return employeeList;
         }
 
-        public void ImportDataToDb(int organizationId, IEnumerable<IEmployee> employeeList)
+        public void ImportDataToDb(int organizationId, IEnumerable<Employee> employeeList)
         {
-            using (var connection = new SqlConnection(DataContext.Current.ConnectionString))
+            using (var connection = new SqlConnection(Consts.ConnectionString))
             {
                 connection.Open();
 
-                foreach (IEmployee employee in employeeList)
+                foreach (Employee employee in employeeList)
                 {
                     using (SqlCommand command = connection.CreateCommand())
                     {

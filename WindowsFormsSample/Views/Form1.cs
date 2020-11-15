@@ -2,8 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Data;
+    using Data.Models;
     using WindowsFormsSample.Logic;
 
     /// <summary>
@@ -17,36 +19,30 @@
             this.Init();
         }
 
-        #region Event handlers
-        private void loadOrganizationFromDbButton_Click(object sender, EventArgs e)
+        private async void LoadOrganizationFromDbButton_Click(object sender, EventArgs e)
         {
-            this.LoadOrganizationFromDb();
+            this.organizationDataGridView.DataSource = await WebAPIHelper.GetOrganizations();
+            this.SetEnabledProperties(true);
         }
 
-        private void importFromCsvButton_Click(object sender, EventArgs e)
+        private async void ImportFromCsvButton_Click(object sender, EventArgs e)
         {
-            ImportEmployeesFromCsv();
+            await this.ImportEmployeesFromCsv();
 
             // Refresh employee list.
-            this.employeeDataGridView.DataSource = this.GetEmployeeListByOrganizationId();
+            this.employeeDataGridView.DataSource = await this.GetEmployeeListByOrganizationId();
             MessageBox.Show("Data have been imported and refreshed");
         }
 
-        private void exportToCsvButton_Click(object sender, EventArgs e)
+        private void ExportToCsvButton_Click(object sender, EventArgs e)
         {
             this.ExportEmployeesToCsv();
         }
 
-        private void dgvOrganization_SelectionChanged(object sender, EventArgs e)
+        private async void DgvOrganization_SelectionChanged(object sender, EventArgs e)
         {
-            this.employeeDataGridView.DataSource = this.GetEmployeeListByOrganizationId();
+            this.employeeDataGridView.DataSource = await this.GetEmployeeListByOrganizationId();
         }
-
-        private void dataProviderTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataContext.Current.DataProviderType = this.GetDataProviderType();
-        }
-        #endregion
 
         /// <summary>
         /// Init properties.
@@ -57,11 +53,6 @@
             this.InitGridProperties(this.employeeDataGridView);
 
             this.SetEnabledProperties(false);
-
-            DataContext.Current.Init(Consts.ConnectionString);
-
-            this.dataProviderTypeComboBox.DataSource = Enum.GetNames(typeof(DataProviderType));
-            DataContext.Current.DataProviderType = this.GetDataProviderType();
         }
 
         private void InitGridProperties(DataGridView dataGridView)
@@ -69,26 +60,6 @@
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.MultiSelect = false;
             dataGridView.ReadOnly = true;
-        }
-
-        private DataProviderType GetDataProviderType()
-        {
-            object selectedValue = this.dataProviderTypeComboBox.SelectedValue;
-
-            return selectedValue != null
-                ? (DataProviderType) Enum.Parse(typeof(DataProviderType), selectedValue.ToString())
-                : DataProviderType.SqlClient;
-        }
-
-        /// <summary>
-        /// Load organization items from database.
-        /// </summary>
-        private void LoadOrganizationFromDb()
-        {
-            IEnumerable<IOrganization> organizationList = DataContext.Current.GetOrganizationList();
-            this.organizationDataGridView.DataSource = organizationList;
-
-            this.SetEnabledProperties(true);
         }
 
         /// <summary>
@@ -103,28 +74,28 @@
         /// <summary>
         /// Import employees items from csv file.
         /// </summary>
-        private void ImportEmployeesFromCsv()
+        private async Task<IEnumerable<Employee>> ImportEmployeesFromCsv()
         {
             int organizationId = this.GetSelectedOrganizationId();
-            CsvImportHelper.ImportEmployeesFromCsv(organizationId);
+            return await CsvImportHelper.ImportEmployeesFromCsv(organizationId);
         }
 
         /// <summary>
         /// Export employees items to csv file.
         /// </summary>
-        private void ExportEmployeesToCsv()
+        private async void ExportEmployeesToCsv()
         {
-            IEnumerable<IEmployee> employeeList = this.GetEmployeeListByOrganizationId();
+            IEnumerable<Employee> employeeList = await this.GetEmployeeListByOrganizationId();
             CsvExportHelper.ExportEmployeesToCsv(employeeList);
         }
 
         /// <summary>
         /// Get employee list by organization id.
         /// </summary>
-        private IEnumerable<IEmployee> GetEmployeeListByOrganizationId()
+        private async Task<IEnumerable<Employee>> GetEmployeeListByOrganizationId()
         {
             int organizationId = this.GetSelectedOrganizationId();
-            IEnumerable<IEmployee> employeeList = DataContext.Current.GetEmployeeListByOrganizationId(organizationId);
+            IEnumerable<Employee> employeeList = await WebAPIHelper.GetEmployeesByOrganizationId(organizationId);
             return employeeList;
         }
 

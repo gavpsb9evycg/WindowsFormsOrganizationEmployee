@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class Organization : IOrganization
+    public class Organization
     {
         public Organization()
         {

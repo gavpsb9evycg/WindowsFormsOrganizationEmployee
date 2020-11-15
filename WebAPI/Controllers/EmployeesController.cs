@@ -1,6 +1,5 @@
 ﻿namespace WebAPI.Controllers
 {
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Data.EntityFramework;
@@ -22,16 +21,9 @@
             this.logger = logger;
         }
 
-        // GET: Employees/GetEmployeeListByOrganizationId/5
-        [HttpGet("GetEmployeeListByOrganizationId/{organizationId}")]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployeeListByOrganizationId(int organizationId)
-        {
-            return await this.context.Employee.Where(n => n.OrganizationId == organizationId).ToListAsync();
-        }
-
         // GET: Employees/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Employee>> GetEmployee(int id)
+        public async Task<ActionResult<Employee>> GetEmployeesId(int id)
         {
             var employee = await this.context.Employee.FindAsync(id);
 
@@ -45,7 +37,7 @@
 
         // PUT: Employees/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployee(int id, Employee employee)
+        public async Task<IActionResult> PutEmployeesId(int id, Employee employee)
         {
             if (id != employee.Id)
             {
@@ -73,34 +65,19 @@
             return NoContent();
         }
 
-        // POST: Employees/ImportDataToDb/5
-        [HttpPost("ImportDataToDb/{organizationId}")]
-        public async Task<IActionResult> ImportDataToDb(int organizationId, IEnumerable<Employee> employeeList)
-        {
-            foreach (Employee employee in employeeList)
-            {
-                employee.Id = 0;
-                employee.OrganizationId = organizationId;
-                this.context.Employee.Add(employee);
-            }
-
-            await this.context.SaveChangesAsync();
-            return NoContent();
-        }
-
         // POST: Employees
         [HttpPost]
-        public async Task<ActionResult<Employee>> PostEmployee(Employee employee)
+        public async Task<ActionResult<Employee>> PostEmployees(Employee employee)
         {
             this.context.Employee.Add(employee);
             await this.context.SaveChangesAsync();
 
-            return this.CreatedAtAction(nameof(GetEmployee), new { id = employee.Id }, employee);
+            return this.CreatedAtAction(nameof(GetEmployeesId), new { id = employee.Id }, employee);
         }
 
         // DELETE: Employees/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Employee>> DeleteEmployee(int id)
+        public async Task<ActionResult<Employee>> DeleteEmployeesId(int id)
         {
             var employee = await this.context.Employee.FindAsync(id);
             if (employee == null)

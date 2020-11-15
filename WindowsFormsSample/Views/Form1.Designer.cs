@@ -35,8 +35,6 @@
             this.loadFromDbButton = new System.Windows.Forms.Button();
             this.importFromCsvButton = new System.Windows.Forms.Button();
             this.exportToCsvButton = new System.Windows.Forms.Button();
-            this.dataProviderTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.dataProviderTypeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.organizationDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +49,7 @@
             this.organizationDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.organizationDataGridView.Size = new System.Drawing.Size(931, 262);
             this.organizationDataGridView.TabIndex = 0;
-            this.organizationDataGridView.SelectionChanged += new System.EventHandler(this.dgvOrganization_SelectionChanged);
+            this.organizationDataGridView.SelectionChanged += new System.EventHandler(this.DgvOrganization_SelectionChanged);
             // 
             // employeeDataGridView
             // 
@@ -91,7 +89,7 @@
             this.loadFromDbButton.TabIndex = 4;
             this.loadFromDbButton.Text = "Load from database";
             this.loadFromDbButton.UseVisualStyleBackColor = true;
-            this.loadFromDbButton.Click += new System.EventHandler(this.loadOrganizationFromDbButton_Click);
+            this.loadFromDbButton.Click += new System.EventHandler(this.LoadOrganizationFromDbButton_Click);
             // 
             // importFromCsvButton
             // 
@@ -102,7 +100,7 @@
             this.importFromCsvButton.TabIndex = 5;
             this.importFromCsvButton.Text = "Import from csv";
             this.importFromCsvButton.UseVisualStyleBackColor = true;
-            this.importFromCsvButton.Click += new System.EventHandler(this.importFromCsvButton_Click);
+            this.importFromCsvButton.Click += new System.EventHandler(this.ImportFromCsvButton_Click);
             // 
             // exportToCsvButton
             // 
@@ -113,33 +111,13 @@
             this.exportToCsvButton.TabIndex = 6;
             this.exportToCsvButton.Text = "Export to csv";
             this.exportToCsvButton.UseVisualStyleBackColor = true;
-            this.exportToCsvButton.Click += new System.EventHandler(this.exportToCsvButton_Click);
-            // 
-            // dataProviderTypeComboBox
-            // 
-            this.dataProviderTypeComboBox.FormattingEnabled = true;
-            this.dataProviderTypeComboBox.Location = new System.Drawing.Point(736, 3);
-            this.dataProviderTypeComboBox.Name = "dataProviderTypeComboBox";
-            this.dataProviderTypeComboBox.Size = new System.Drawing.Size(142, 23);
-            this.dataProviderTypeComboBox.TabIndex = 7;
-            this.dataProviderTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dataProviderTypeComboBox_SelectedIndexChanged);
-            // 
-            // dataProviderTypeLabel
-            // 
-            this.dataProviderTypeLabel.AutoSize = true;
-            this.dataProviderTypeLabel.Location = new System.Drawing.Point(657, 9);
-            this.dataProviderTypeLabel.Name = "dataProviderTypeLabel";
-            this.dataProviderTypeLabel.Size = new System.Drawing.Size(75, 15);
-            this.dataProviderTypeLabel.TabIndex = 8;
-            this.dataProviderTypeLabel.Text = "DataProvider";
+            this.exportToCsvButton.Click += new System.EventHandler(this.ExportToCsvButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 601);
-            this.Controls.Add(this.dataProviderTypeLabel);
-            this.Controls.Add(this.dataProviderTypeComboBox);
             this.Controls.Add(this.exportToCsvButton);
             this.Controls.Add(this.importFromCsvButton);
             this.Controls.Add(this.loadFromDbButton);
@@ -166,8 +144,6 @@
         private System.Windows.Forms.Button loadFromDbButton;
         private System.Windows.Forms.Button importFromCsvButton;
         private System.Windows.Forms.Button exportToCsvButton;
-        private System.Windows.Forms.ComboBox dataProviderTypeComboBox;
-        private System.Windows.Forms.Label dataProviderTypeLabel;
     }
 }
 

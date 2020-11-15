@@ -5,11 +5,11 @@
     using Data.Models;
 
     /// <summary>
-    /// Entity Framework Core context.
+    /// Entity Framework Core Helper.
     /// </summary>
-    public class EntityContext : IDataContext
+    public class EntityHelper
     {
-        public IEnumerable<IOrganization> GetOrganizationList()
+        public IEnumerable<Organization> GetOrganizationList()
         {
             using (var context = new OrganizationEmployeeContext())
             {
@@ -17,7 +17,7 @@
             }
         }
 
-        public IEnumerable<IEmployee> GetEmployeeListByOrganizationId(int organizationId)
+        public IEnumerable<Employee> GetEmployeeListByOrganizationId(int organizationId)
         {
             using (var context = new OrganizationEmployeeContext())
             {
@@ -25,11 +25,11 @@
             }
         }
 
-        public void ImportDataToDb(int organizationId, IEnumerable<IEmployee> employeeList)
+        public void ImportDataToDb(int organizationId, IEnumerable<Employee> employeeList)
         {
             using (var context = new OrganizationEmployeeContext())
             {
-                foreach (IEmployee employee in employeeList)
+                foreach (Employee employee in employeeList)
                 {
                     var newEmployee = new Employee
                     {

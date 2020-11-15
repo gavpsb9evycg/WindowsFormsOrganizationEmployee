@@ -1,6 +1,5 @@
 namespace WebAPI
 {
-    using Data;
     using Data.EntityFramework;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -14,7 +13,6 @@ namespace WebAPI
         public Startup(IConfiguration configuration)
         {
             this.Configuration = configuration;
-            DataContext.Current.Init(Consts.ConnectionString);
         }
 
         public IConfiguration Configuration { get; }
@@ -23,7 +21,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<OrganizationEmployeeContext>(options => options.UseSqlServer(DataContext.Current.ConnectionString));
+            services.AddDbContext<OrganizationEmployeeContext>(options => options.UseSqlServer(Consts.ConnectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

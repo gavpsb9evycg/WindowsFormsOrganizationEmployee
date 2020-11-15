@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Employee : IEmployee
+    public class Employee
     {
         public int Id { get; set; }
 
